@@ -34,3 +34,15 @@ variable "lambda_env" {
   description = "Environment variables for Lambda"
   type        = map(string)
 }
+
+variable "vpc_id" {
+  description = "VPC ID for Lambda and RDS"
+  type        = string
+  default     = "vpc-0c443482b08b7932e"
+}
+
+variable "subnet_id" {
+  description = "Subnet ID for Lambda and RDS"
+  type        = string
+  default     = "subnet-0a208c4d5aab910ec"
+}
