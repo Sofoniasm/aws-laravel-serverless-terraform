@@ -1,0 +1,24 @@
+stages:
+  - validate
+  - plan
+  - apply
+
+validate:
+  stage: validate
+  script:
+    - terraform init
+    - terraform validate
+
+plan:
+  stage: plan
+  script:
+    - terraform plan -out=tfplan
+  artifacts:
+    paths:
+      - tfplan
+
+apply:
+  stage: apply
+  script:
+    - terraform apply -auto-approve tfplan
+  when: manual
